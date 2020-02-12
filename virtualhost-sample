@@ -1,0 +1,25 @@
+server {
+	listen 80;
+	server_name KX_DOMAINNAME www.KX_DOMAINNAME;
+
+        root /var/www/html/KX_DOMAINNAME;
+        index index.php;
+
+ 	location / {
+                #try_files $uri $uri/ /index.php;
+                try_files $uri $uri/ /index.php?$args;
+        }
+
+        location ~ \.php$ {
+          include snippets/fastcgi-php.conf;
+          fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        }
+
+        location ~ /\.ht {
+          deny all;
+        }
+
+	access_log /var/log/nginx/KX_DOMAINNAME-access.log;
+	error_log  /var/log/nginx/KX_DOMAINNAME-error.log;
+
+}
