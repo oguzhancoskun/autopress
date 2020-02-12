@@ -1,6 +1,5 @@
 # autopress
-Wordpress simple deployment
-
+simple wordpress setup
 # CONFIGURATION
 - update wp-config-sample <your_db_host> to your database url
 - update main.sh following values;
